@@ -18,9 +18,9 @@ public class Fraction implements Number {
         int denom1 = ((Fraction) num).denom;
         int num2 = this.num;
         int denom2 = this.denom;
-        int cd = denom1 * denom2;
+        int comDenom = denom1 * denom2;
         int numeratorFinal = (num1 * denom2) + (num2 * denom1);
-        return new Fraction(numeratorFinal, cd);
+        return new Fraction(numeratorFinal, comDenom);
     }
 
     @Override
