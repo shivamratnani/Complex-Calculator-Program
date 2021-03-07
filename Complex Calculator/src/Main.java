@@ -5,8 +5,6 @@ public class Main {
         public static void main(String[] args) {
             try {
                 Scanner scanner = new Scanner(System.in);
-                Fraction1 fraction = new Fraction1();
-                complexNumber complex = new complexNumber();
                 int repeatProgram = 1;
                 while (repeatProgram == 1) {
                     System.out.println("Enter 1 for fraction and 2 for complex number!");
@@ -41,29 +39,16 @@ public class Main {
                             fractionOperation = scanner.nextInt();
                         }
                         if (fractionOperation == 1){
-                           // fraction.add(num1, denom1, num2, denom2);
                             System.out.println(fraction1.add(fraction2));
-                           /* int num = fraction.num;
-                            int denom = fraction.denom;
-                           fraction.simplify(num, denom);
-                        */ }
+                        }
                         if (fractionOperation == 2){
-                          fraction.subtract(num1, denom1, num2, denom2);
-                            int num = fraction.num;
-                            int denom = fraction.denom;
-                            fraction.simplify(num, denom);
+                            System.out.println(fraction1.subtract(fraction2));
                         }
                         if (fractionOperation == 3){
-                          fraction.multiply(num1, denom1, num2, denom2);
-                            int num = fraction.num;
-                            int denom = fraction.denom;
-                            fraction.simplify(num, denom);
+                           System.out.println(fraction1.multiply(fraction2));
                         }
                         if (fractionOperation == 4){
-                          fraction.divide(num1, denom1, num2, denom2);
-                            int num = fraction.num;
-                            int denom = fraction.denom;
-                            fraction.simplify(num, denom);
+                           System.out.println(fraction1.divide(fraction2));
                         }
                     }
 
@@ -77,6 +62,8 @@ public class Main {
                         double real2 = scanner.nextDouble();
                         System.out.println("Enter second complex number ");
                         double complex2 = scanner.nextDouble();
+                        complexNumber comp1 = new complexNumber(real1, complex1);
+                        complexNumber comp2 = new complexNumber(real2, complex2);
                         System.out.println("If you would like to add enter: 1");
                         System.out.println("If you would like to subtract enter: 2");
                         System.out.println("If you would like to multiply enter: 3");
@@ -88,16 +75,17 @@ public class Main {
                             complexOperation = scanner.nextInt();
                         }
                         if (complexOperation == 1){
-                            complex.add(real1, complex1, real2, complex2);
+                            System.out.println(comp1.add(comp2));
+
                         }
                         if (complexOperation == 2){
-                            complex.subtract(real1, complex1, real2, complex2);
+                            System.out.println(comp1.subtract(comp2));
                         }
                         if (complexOperation == 3){
-                            complex.multiply(real1, complex1, real2, complex2);
+                            System.out.println(comp1.multiply(comp2));
                         }
                         if (complexOperation == 4){
-                            complex.divide(real1, complex1, real2, complex2);
+                            System.out.println(comp1.divide(comp2));
                         }
                     }
                     System.out.println("Enter 0 to quit and 1 to continue");

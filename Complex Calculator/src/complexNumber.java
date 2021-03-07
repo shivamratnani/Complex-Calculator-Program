@@ -1,42 +1,73 @@
-public class complexNumber {
-    public void add(double real1, double complex1, double real2, double complex2){
+import java.util.InputMismatchException;
+
+public class complexNumber implements Number{
+    final private double real;
+    final private double complex;
+
+    public complexNumber(double real, double complex) {
+        this.real = real;
+        this.complex = complex;
+    }
+
+    @Override
+    public Number add(Number num) {
+        double real2 = ((complexNumber) num).real;
+        double complex2 = ((complexNumber) num).complex;
+        double real1 = this.real;
+        double complex1 = this.complex;
         double realnum = real1 + real2;
         double complexnum = complex1 + complex2;
-        System.out.println((realnum + " + (" + complexnum + ") i"));
+        return new complexNumber(realnum, complexnum);
     }
 
-    public void subtract(double real1, double complex1, double real2, double complex2){
+    @Override
+    public Number subtract(Number num) {
+        double real2 = ((complexNumber) num).real;
+        double complex2 = ((complexNumber) num).complex;
+        double real1 = this.real;
+        double complex1 = this.complex;
         double realnum = real1 - real2;
         double complexnum = complex1 - complex2;
-        System.out.println(realnum + " + (" + complexnum + ") i");
+        return new complexNumber(realnum, complexnum);
     }
 
-    public void multiply(double real1, double complex1, double real2, double complex2){
+    @Override
+    public Number multiply(Number num) {
+        double real2 = ((complexNumber) num).real;
+        double complex2 = ((complexNumber) num).complex;
+        double real1 = this.real;
+        double complex1 = this.complex;
         double realnum = (real1 * real2) - (complex1 * complex2);
         double complexnum = (real1 * complex2) + (real2 * complex1);
-        System.out.println(realnum + " + (" + complexnum + ") i");
+        System.out.println(real1);
+        System.out.println(complex1);
+        System.out.println(real2);
+        System.out.println(complex2);
+        return new complexNumber(realnum, complexnum);
     }
 
-    public void divide(double real1, double complex1, double real2, double complex2){
+    @Override
+    public Number divide(Number num) {
+        double real2 = ((complexNumber) num).real;
+        double complex2 = ((complexNumber) num).complex;
+        double real1 = this.real;
+        double complex1 = this.complex;
         complex2 = -1 * complex2;
-        //"Implements" this stuff [
         double realnum = (real1 * real2) - (complex1 * complex2);
         double complexnum = (real1 * complex2) + (real2 * complex1);
-        //]
         double denominator = real2*real2 + complex2*complex2;
         realnum = realnum/denominator;
         complexnum = complexnum/denominator;
+        return new complexNumber(realnum, complexnum);
     }
 
-    //how to get realnum and complexnum values
-    public void print (int realnum, int complexnum) {
-        //Prints -> Implement this?
+    @Override
+    public String toString() {
         int plusPrint = 0;
-        if (realnum != 0 && complexnum != 0) plusPrint = 1;
-        System.out.println(" ");
-        if (realnum != 0) System.out.print(realnum);
-        if (plusPrint == 1) System.out.print(" + ");
-        if (complexnum != 0) System.out.print("(" + complexnum + ") i");
-        System.out.println(" ");
+        if (this.real == 0 || this.complex == 0) plusPrint = 1;
+        if (this.real != 0 && plusPrint == 1) return "\n" + this.real;
+        else if (this.complex != 0 && plusPrint == 1) return "\n (" + this.complex + ") i";
+        else if (this.real == 0 && this.complex == 0) return "0";
+        else return "\n" + this.real +" + (" + this.complex + ") i";
     }
 }

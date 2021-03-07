@@ -14,10 +14,10 @@ public class Fraction implements Number {
 
     @Override
     public Number add(Number num) {
-        int num1 = ((Fraction) num).num;
-        int denom1 = ((Fraction) num).denom;
-        int num2 = this.num;
-        int denom2 = this.denom;
+        int num1 = this.num;
+        int denom1 = this.denom;
+        int num2 = ((Fraction) num).num;
+        int denom2 = ((Fraction) num).denom;
         int comDenom = denom1 * denom2;
         int numeratorFinal = (num1 * denom2) + (num2 * denom1);
         return new Fraction(numeratorFinal, comDenom);
@@ -25,17 +25,41 @@ public class Fraction implements Number {
 
     @Override
     public Number subtract(Number num) {
-        return null;
+        int num1 = this.num;
+        int denom1 = this.denom;
+        int num2 = ((Fraction) num).num;
+        int denom2 = ((Fraction) num).denom;
+        int comDenom = denom1 * denom2;
+        int numeratorFinal = (num1 * denom2) - (num2 * denom1);
+        return new Fraction(numeratorFinal, comDenom);
     }
 
     @Override
     public Number multiply(Number num) {
-        return null;
+        int num1 = this.num;
+        int denom1 = this.denom;
+        int num2 = ((Fraction) num).num;
+        int denom2 = ((Fraction) num).denom;
+        int numeratorFinal = num1 * num2;
+        int denomFinal = denom2 * denom1;
+        int gcm = gcm(numeratorFinal, denomFinal);
+        numeratorFinal = numeratorFinal/gcm;
+        denomFinal = denomFinal/gcm;
+        return new Fraction(numeratorFinal, denomFinal);
     }
 
     @Override
     public Number divide(Number num) {
-        return null;
+        int num1 = this.num;
+        int denom1 = this.denom;
+        int num2 = ((Fraction) num).num;
+        int denom2 = ((Fraction) num).denom;
+        int numeratorFinal = num1 * denom2;
+        int denomFinal = denom1 * num2;
+        int gcm = gcm(numeratorFinal, denomFinal);
+        numeratorFinal = numeratorFinal/gcm;
+        denomFinal = denomFinal/gcm;
+        return new Fraction(numeratorFinal, denomFinal);
     }
 
     private int gcm(int num, int denom) {
