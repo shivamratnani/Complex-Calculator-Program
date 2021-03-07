@@ -6,7 +6,6 @@ public class Main {
             try {
                 Scanner scanner = new Scanner(System.in);
                 Fraction1 fraction = new Fraction1();
-                Fraction frac = new Fraction();
                 complexNumber complex = new complexNumber();
                 int repeatProgram = 1;
                 while (repeatProgram == 1) {
@@ -43,8 +42,7 @@ public class Main {
                         }
                         if (fractionOperation == 1){
                            // fraction.add(num1, denom1, num2, denom2);
-                            frac.add(fraction1);
-                            frac.add(fraction2);
+                            System.out.println(fraction1.add(fraction2));
                            /* int num = fraction.num;
                             int denom = fraction.denom;
                            fraction.simplify(num, denom);

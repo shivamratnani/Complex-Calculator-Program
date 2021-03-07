@@ -1,44 +1,26 @@
-public class Fraction implements Number{
+import java.util.InputMismatchException;
 
-    private int num;
-    private int denom;
+public class Fraction implements Number {
 
-    public Fraction(){
-        num = 0;
-        denom = 0;
-    }
+    final private int num;
+    final private int denom;
 
-    public Fraction(int numerator, int denominator){
-        num = numerator;
-        denom = denominator;
-    }
-    int gcm;
-    public void setNum(int x){
-        num = x;
-    }
-
-    public int getNum(){
-        return num;
-    }
-
-    public void setDenom(int y){
-        denom = y;
-    }
-
-    public int getDenom(){
-        return denom;
+    public Fraction(int numerator, int denominator) {
+        int gcm = gcm(numerator, denominator);
+        this.num = numerator / gcm;
+        this.denom = denominator / gcm;
+        if (denom == 0) throw new InputMismatchException();
     }
 
     @Override
     public Number add(Number num) {
-       // Fraction fraction = (Fraction) num;
-        int num1 = ((Fraction)num).num;
-        int denom1 = ((Fraction)num).denom;
+        int num1 = ((Fraction) num).num;
+        int denom1 = ((Fraction) num).denom;
         int num2 = this.num;
         int denom2 = this.denom;
-        System.out.println(num1);
-
-    return null;
+        int cd = denom1 * denom2;
+        int numeratorFinal = (num1 * denom2) + (num2 * denom1);
+        return new Fraction(numeratorFinal, cd);
     }
 
     @Override
@@ -56,26 +38,16 @@ public class Fraction implements Number{
         return null;
     }
 
-    public int gcm(Number num){
-        gcm = 0;
-        Fraction fraction = (Fraction) num;
-        gcm = denom * fraction.getDenom();
-        for(int i = 1; i < gcm; i++){
-            if(i % denom == 0 && i % fraction.getDenom() == 0){
-                gcm = i;
-                break;
-            }
+    private int gcm(int num, int denom) {
+        int gcm = 0;
+        for (int i = 1; i <= num || i <= denom; i++) {
+            if (num % i == 0 && denom % i == 0) gcm = i;
         }
         return gcm;
     }
 
-    public void print() {
-        System.out.println(this.num + "/" + this.denom);
+    @Override
+    public String toString() {
+        return this.num + "/" + this.denom;
     }
-
-    /*
-    public Fraction simplify(){
-
-    }
-    */
 }
