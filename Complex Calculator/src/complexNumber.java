@@ -1,14 +1,11 @@
-import java.util.InputMismatchException;
-
+import java.util.*;
 public class complexNumber implements Number{
     final private double real;
     final private double complex;
-
     public complexNumber(double real, double complex) {
         this.real = real;
         this.complex = complex;
     }
-
     @Override
     public Number add(Number num) {
         double real2 = ((complexNumber) num).real;
@@ -19,7 +16,6 @@ public class complexNumber implements Number{
         double complexnum = complex1 + complex2;
         return new complexNumber(realnum, complexnum);
     }
-
     @Override
     public Number subtract(Number num) {
         double real2 = ((complexNumber) num).real;
@@ -30,7 +26,6 @@ public class complexNumber implements Number{
         double complexnum = complex1 - complex2;
         return new complexNumber(realnum, complexnum);
     }
-
     @Override
     public Number multiply(Number num) {
         double real2 = ((complexNumber) num).real;
@@ -45,7 +40,6 @@ public class complexNumber implements Number{
         System.out.println(complex2);
         return new complexNumber(realnum, complexnum);
     }
-
     @Override
     public Number divide(Number num) {
         double real2 = ((complexNumber) num).real;
@@ -60,7 +54,6 @@ public class complexNumber implements Number{
         complexnum = complexnum/denominator;
         return new complexNumber(realnum, complexnum);
     }
-
     @Override
     public String toString() {
         int plusPrint = 0;

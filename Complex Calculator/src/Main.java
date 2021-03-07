@@ -1,6 +1,4 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
+import java.util.*;
 public class Main {
         public static void main(String[] args) {
             try {
@@ -51,8 +49,6 @@ public class Main {
                            System.out.println(fraction1.divide(fraction2));
                         }
                     }
-
-
                     if (whatCalc == 2) {
                         System.out.println("Enter first real number ");
                         double real1 = scanner.nextDouble();
@@ -76,7 +72,6 @@ public class Main {
                         }
                         if (complexOperation == 1){
                             System.out.println(comp1.add(comp2));
-
                         }
                         if (complexOperation == 2){
                             System.out.println(comp1.subtract(comp2));
@@ -91,7 +86,6 @@ public class Main {
                     System.out.println("Enter 0 to quit and 1 to continue");
                     repeatProgram = scanner.nextInt();
                 }
-
             } catch (InputMismatchException e) {
                 System.out.println("Please Enter a valid Integer value! ");
                 System.out.println("Program is exiting! ");
